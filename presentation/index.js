@@ -30,7 +30,6 @@ import createTheme from 'spectacle/lib/themes/default'
 
 // limitations = https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7
 const images = {
-  myPhone: require('../assets/myPhone.png'),
   reactPic: require('../assets/pwa-fast.png'),
   hnpwa: require('../assets/hnpwa.png'),
   noInternet: require('../assets/no-internet-dino.png')
@@ -157,12 +156,10 @@ export default class Presentation extends React.Component {
               </List>
             </Fill>
             <Fill>
-              <div>
-                <img
-                  src={images.myPhone.replace('/', '')}
-                  style={{ width: 250 }}
-                />
-              </div>
+              <Image
+                src="http://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531271067/myphone_bjiupw.png"
+                style={{ width: 250 }}
+              />
             </Fill>
           </Layout>
           <Text textColor="black">.</Text>
