@@ -1,0 +1,8 @@
+
+h1 {
+  border: 10px solid orange !important;
+}
+
+.spectacle-content > pre > code div:hover {
+  background-color: whitesmoke;
+}

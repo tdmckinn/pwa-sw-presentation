@@ -1,0 +1,45 @@
+{
+  "name": "spectacle-boilerplate",
+  "version": "1.0.1",
+  "description": "ReactJS Powered Presentation Framework",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
+    "lint": "eslint --ext .js,.jsx .",
+    "deploy": "npm run clean & npm run build && surge -p .",
+    "export": "spectacle-renderer --delay 3000",
+    "start": "parcel index.html"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "assets": "^3.0.0",
+    "normalize.css": "^8.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "spectacle": "^4.0.0",
+    "spectacle-code-slide": "^0.5.2",
+    "spectacle-renderer": "^0.0.3"
+  },
+  "devDependencies": {
+    "@types/spectacle": "^1.2.1",
+    "cross-env": "^5.1.0",
+    "eslint": "^4.9.0",
+    "eslint-config-formidable": "^3.0.0",
+    "eslint-plugin-filenames": "^1.2.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.4.0",
+    "express": "^4.16.2",
+    "is-buffer": "^1.1.5",
+    "parcel-bundler": "^1.9.4",
+    "prettier": "^1.13.7",
+    "react-hot-loader": "^3.1.1",
+    "react-transform-catch-errors": "^1.0.2",
+    "redbox-react": "^1.5.0",
+    "rimraf": "^2.6.2",
+    "surge": "latest",
+    "typescript": "^2.9.2",
+    "yarn ": "^1.1.5"
+  }
+}
