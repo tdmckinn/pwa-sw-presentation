@@ -211,7 +211,7 @@ class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide>
-          <Text textColor="#fff">Framwework Support</Text>
+          <Text textColor="#fff">Framework Support</Text>
           <Link href="https://hnpwa.com/" target="_blank">
             <Image src="https://hnpwa.com/assets/images/hnpwa-logo.png" />
           </Link>
@@ -316,7 +316,7 @@ class Presentation extends React.Component {
             Easy Mode <i className="material-icons">directions_run</i>
           </Heading>
           <List>
-            <ListItem>Framwework CLI's</ListItem>
+            <ListItem>Framework CLI's</ListItem>
             <ListItem>Workbox</ListItem>
             <ListItem>Webpack</ListItem>
           </List>
