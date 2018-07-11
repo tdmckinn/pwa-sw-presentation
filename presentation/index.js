@@ -282,15 +282,15 @@ export default class Presentation extends React.Component {
           </Heading>
           <Layout>
             <Fill s>
-              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/v1531247642/app-home_figc08.png" />
+              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531247642/app-home_figc08.png" />
             </Fill>
             <span> . </span>
             <Fill>
-              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/v1531247641/app-splash_xuddvn.png" />
+              <Image src="http://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531272474/add2hs_achfe9.png" />
             </Fill>
             <span> . </span>
             <Fill>
-              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/v1531247641/app_jpnvu9.png" />
+              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531247641/app_jpnvu9.png" />
             </Fill>
           </Layout>
         </Slide>
