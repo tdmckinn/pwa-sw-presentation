@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React from 'react'
 import CodeSlide from 'spectacle-code-slide'
+
 import {
   BlockQuote,
   Cite,
@@ -23,6 +24,8 @@ import { manifestEx } from './ex-code/manifest.example'
 import { a2hsEx } from './ex-code/a2hs.example'
 import { preload, prefetch } from './ex-code/preload.example'
 
+import SkookumSvg from './skookum'
+
 import 'normalize.css'
 import './styles.css'
 
@@ -30,7 +33,7 @@ import createTheme from 'spectacle/lib/themes/default'
 
 // limitations = https://medium.com/@firt/progressive-web-apps-on-ios-are-here-d00430dee3a7
 const images = {
-  reactPic: require('../assets/pwa-fast.png'),
+  pwaImg: require('../assets/pwa-fast.png'),
   hnpwa: require('../assets/hnpwa.png'),
   noInternet: require('../assets/no-internet-dino.png')
 }
@@ -55,9 +58,10 @@ const JSIconSvg = () => (
     <path d="M423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 93 0 53.3-41.87 82.5-98.1 82.5-54.98 0-90.5-26.2-107.88-60.54zm-209.13 5.13c9.3 16.5 17.76 30.45 38.1 30.45 19.45 0 31.72-7.61 31.72-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z" />
   </svg>
 )
+
 const thankyouListTextSize = '26px'
 
-export default class Presentation extends React.Component {
+class Presentation extends React.Component {
   render() {
     return (
       <Deck
@@ -68,7 +72,7 @@ export default class Presentation extends React.Component {
       >
         <Slide transition={['zoom']} bgColor="primary">
           <img
-            src={images.reactPic.replace('/', '')}
+            src={images.pwaImg.replace('/', '')}
             style={{ width: 146, height: 'auto' }}
           />
           <span
@@ -81,7 +85,7 @@ export default class Presentation extends React.Component {
           </Heading>
           <br />
           <span style={{ fontSize: 30, color: '#fff' }}>
-            Google, Google, Google, & Best Practices
+            Google & Best Practices
           </span>
           <div
             style={{
@@ -91,7 +95,8 @@ export default class Presentation extends React.Component {
               paddingTop: 100
             }}
           >
-            <JSIconSvg />
+            {/* <JSIconSvg /> */}
+            <SkookumSvg />
             <div
               style={{
                 display: 'flex',
@@ -99,19 +104,19 @@ export default class Presentation extends React.Component {
               }}
             >
               <svg
-                style={{ width: 100, height: 70 }}
+                style={{ width: 90, height: 60 }}
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 400 400"
+                viewBox="0 0 350 350"
               >
                 <defs />
-                <rect className="cls-1" width="400" height="400" />
+                <rect className="cls-1" width="350" height="350" />
                 <path
                   className="cls-2"
                   style={{ fill: '#1da1f2' }}
                   d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
                 />
               </svg>
-              <span>@TirellMckinnon</span>
+              <div style={{ fontSize: 26, paddingTop: 6 }}>@TirellMckinnon</div>
             </div>
           </div>
         </Slide>
@@ -146,7 +151,6 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Heading textColor="secondary">PWA Meta</Heading>
-          <br />
           <Layout>
             <Fill>
               <List>
@@ -190,7 +194,11 @@ export default class Presentation extends React.Component {
           lang="js"
           color="#secondary"
           code={a2hsEx}
-          ranges={[{ loc: [0, 4], title: 'A2HS' }]}
+          ranges={[
+            { loc: [0, 4], title: 'A2HS' },
+            { loc: [4, 7] },
+            { loc: [7, 20] }
+          ]}
         />
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
@@ -202,26 +210,47 @@ export default class Presentation extends React.Component {
             Lighthouse
           </Heading>
         </Slide>
-        <Slide bgImage={images.hnpwa.replace('/', '')}>
-          {/* <div size={1} fit caps lineHeight={1} textColor="black">
-            Framework Support
-          </div> */}
-          <a
-            href="https://hnpwa.com/"
-            target="_blank"
-            style={{ padding: '100%' }}
-          />
+        <Slide>
+          <Text textColor="#fff">Framwework Support</Text>
+          <Link href="https://hnpwa.com/" target="_blank">
+            <Image src="https://hnpwa.com/assets/images/hnpwa-logo.png" />
+          </Link>
+        </Slide>
+        <Slide>
+          <Heading lineHeight={1} textColor="secondary">
+            Demo
+          </Heading>
+          <Layout>
+            <Fill s>
+              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531247642/app-home_figc08.png" />
+            </Fill>
+            <span> . </span>
+            <Fill>
+              <Image src="http://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531272474/add2hs_achfe9.png" />
+            </Fill>
+            <span> . </span>
+            <Fill>
+              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531247641/app_jpnvu9.png" />
+            </Fill>
+          </Layout>
         </Slide>
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Web Workers
           </Heading>
+          <Link href="https://caniuse.com/#search=web%20wo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24">
+              <path fill="orange" fillRule="evenodd" clipRule="evenodd" d="M14 6V4h-4v2h4zM4 8v11h16V8H4zm16-2c1.11 0 2 .89 2 2v11c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2l.01-11c0-1.11.88-2 1.99-2h4V4c0-1.11.89-2 2-2h4c1.11 0 2 .89 2 2v2h4z"/>
+              <path fill="none" d="M0 0h24v24H0z"/>
+            </svg>
+          </Link>
         </Slide>
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Service Workers
           </Heading>
-          <Text textColor="#fff">Caching Content</Text>
+          <Image height="100" width="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/1024px-Google_Chrome_icon_%28September_2014%29.svg.png" />
+          <Text textColor="#fff">4 Types of Cache</Text>
         </Slide>
         <CodeSlide
           lang="js"
@@ -232,7 +261,10 @@ export default class Presentation extends React.Component {
               loc: [0, 4],
               title: 'Service Worker Lifecycle',
               note: 'Download (Parse), Install, Activate, Redundant'
-            }
+            },
+            { loc: [6, 16] },
+            { loc: [18, 31] },
+            { loc: [33, 43] }
           ]}
         />
         <Slide>
@@ -258,6 +290,7 @@ export default class Presentation extends React.Component {
           <Heading fit lineHeight={1} textColor="secondary">
             P<span style={{ color: 'orange' }}>(R)</span>PL - Render
           </Heading>
+          <Text textColor="#fff">Initial Route</Text>
         </Slide>
         <Slide>
           <Heading fit lineHeight={1} textColor="secondary">
@@ -275,24 +308,8 @@ export default class Presentation extends React.Component {
           <Heading fit lineHeight={1} textColor="secondary">
             PRP<span style={{ color: 'orange' }}>(L)</span> - Lazy Load
           </Heading>
-        </Slide>
-        <Slide>
-          <Heading lineHeight={1} textColor="secondary">
-            Demo
-          </Heading>
-          <Layout>
-            <Fill s>
-              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531247642/app-home_figc08.png" />
-            </Fill>
-            <span> . </span>
-            <Fill>
-              <Image src="http://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531272474/add2hs_achfe9.png" />
-            </Fill>
-            <span> . </span>
-            <Fill>
-              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/q_auto:low,f_auto/v1531247641/app_jpnvu9.png" />
-            </Fill>
-          </Layout>
+          <Text textColor="#fff">On Demand - Dynamic Imports</Text>
+          <CodePane lang="js" source={` import('./myScript').then((module) => ...etc`} />
         </Slide>
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
@@ -350,7 +367,7 @@ export default class Presentation extends React.Component {
               </List>
             </Fill>
             <Fill>
-              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/v1531252749/Screen_Shot_2018-07-10_at_12.56.37_PM_xqqyjj.png" />
+              <Image src="https://res.cloudinary.com/drjn3dk05/image/upload/q_auto/v1531252749/glen-swq.png" />
             </Fill>
           </Layout>
         </Slide>
@@ -358,3 +375,5 @@ export default class Presentation extends React.Component {
     )
   }
 }
+
+export default Presentation
